@@ -1,9 +1,5 @@
 const progress=document.getElementById('progress');
-window.addEventListener('scroll',()=>{
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  const p=(window.scrollY/h)*100;
-  if(progress) progress.style.width=p+'%';
-});
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;const p=(window.scrollY/h)*100;if(progress)progress.style.width=p+'%';});
 const antipasti=[{n:'Fagioli Con Bruschetta',d:'',p:''},{n:'Prosciutto',d:'',p:''},{n:'Antipasto Misto',d:'Prosciutto, lonza, salame, formaggio',p:''},{n:'Antipasto Contadino',d:'Olive, carciofi, sottolio, salumi, formaggio',p:''},{n:'Insalata Nizzarda',d:'',p:''},{n:'Prosciutto E Melone',d:'',p:''},{n:'Bresaola, Rucola E Grana',d:'',p:''},{n:'Caprese',d:'',p:''},{n:'Grande Antipasto',d:'Salumi, formaggi, sott\'olio',p:'10,00 €'}];
 const primi=[{n:'Tagliatelle Al Ragù O Funghi',d:'',p:'9,00 €'},{n:'Tagliatelle Bianche Con Funghi Misti E Porcini',d:'',p:'12,00 €'},{n:'Gnocchi All\'anatra',d:'',p:'10,00 €'},{n:'Pappardelle Alla Lepre',d:'',p:'10,00 €'},{n:'Tortellini Al Ragù O Pasticciati',d:'',p:'12,00 €'},{n:'Penne All\'arrabbiata',d:'',p:''},{n:'Tagliatelle Con Fagioli',d:'Piatto simbolo',p:''},{n:'Tagliatelle Al Ragù',d:'',p:''},{n:'Tagliatelle Con Piselli',d:'',p:''},{n:'Tagliatelle Ai Funghi',d:'',p:''},{n:'Passatello Alla Campagnola',d:'',p:''},{n:'Ravioli Burro E Salvia',d:'',p:''},{n:'Ravioli Al Ragù',d:'',p:''},{n:'Ravioli Pasticciati',d:'',p:''},{n:'Ravioli Boscaiola',d:'',p:''},{n:'Tortellini Alla Boscaiola',d:'',p:''},{n:'Strozzapreti All\' Antica Trattoria',d:'Pasticciati, funghi e salsiccia',p:''},{n:'Penne Alla Vodka',d:'',p:''}];
 const secondi=[{n:'Carne Al Forno',d:'Coniglio, pollo, faraona',p:'13,00 €'},{n:'Carne Alla Brace',d:'Salsiccia, costine, spiedini, coppa di maiale',p:'12,00 €'},{n:'Tagliata Di Manzo',d:'400/450 g',p:'20,00 €'},{n:'Bistecca Di Manzo',d:'400/500 g',p:'18,00 €'},{n:'Agnello Alla Brace',d:'',p:'13,00 €'},{n:'Misto Di Carne Alla Brace',d:'Salsiccia, costine, spiedino, maiale',p:''},{n:'Misto Di Carne Al Forno',d:'Coniglio in porchetta, pollo, faraona',p:''},{n:'Salsiccia',d:'N. 3 pezzi',p:''},{n:'Braciola Di Maiale',d:'',p:''},{n:'Costarelle',d:'N. 4 pezzi',p:''},{n:'Formaggi Misti',d:'',p:''},{n:'Pecorino Nostrano',d:'',p:''}];
@@ -17,59 +13,23 @@ const rossi=[{n:'Sangiovese Doc La Ripe - Lucarelli',d:'cl.75',p:''},{n:'Sangiov
 const bianchi=[{n:'Gessara Bianchello Superiore - Vitali',d:'',p:''},{n:'Bianchello La Ripe - Lucarelli',d:'cl.75',p:''},{n:'Bianchello Campioli - Fiorini',d:'cl.75',p:''},{n:'Bianchello S. Ilario - Fiorini',d:'cl.75',p:''},{n:'Bianchello Metauro Terrazze - Morelli',d:'cl.75',p:''},{n:'Verdicchio Ca\'ruptae - Iesi',d:'cl.75',p:''},{n:'Bianchello Del Metauro Doc - Guerrieri',d:'cl.50',p:''},{n:'Celso Bianchello Del Metauro Sup. Doc - Guerrieri',d:'cl.75',p:''},{n:'Guerriero Bianco Igt - Guerrieri',d:'cl.75',p:''},{n:'Moss Vino Frizzante - Guerrieri',d:'cl.75',p:''}];
 const spina=[{n:'Bianchello - Sangiovese 1/2 L / 1/4 L',d:'In Bottiglia',p:''},{n:'Bianco Frizzante Alla Spina 1 L / 1/2 L',d:'',p:''},{n:'Bianchello / Sangiovese 3/4 L Bottiglia',d:'',p:''}];
 function renderList(id,data){const el=document.getElementById(id);if(!el)return;el.innerHTML=data.map(d=>{const pc=d.p?'':'empty';return `<div class="item"><div class="item-left"><b>${d.n}</b>${d.d?`<small>${d.d}</small>`:''}</div><div class="item-right ${pc}">${d.p}</div></div>`}).join('');}
-function renderAll(){
-  renderList('list-antipasti',antipasti);renderList('list-primi',primi);renderList('list-secondi',secondi);renderList('list-contorni',contorni);renderList('list-dolci',dolci);renderList('list-speciali',speciali);renderList('list-extra',extra);renderList('list-bibite',bibite);renderList('list-birre',birre);renderList('list-rossi',rossi);renderList('list-bianchi',bianchi);renderList('list-spina',spina);
-  document.querySelectorAll('.cat').forEach(c=>c.classList.add('collapsed'));
-}
-document.addEventListener('click',e=>{
-  if(e.target.classList.contains('filter')){
-    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');
-    const f=e.target.dataset.filter;
-    document.querySelectorAll('.cat[data-cat]').forEach(cat=>{
-      if(f==='all'||cat.dataset.cat===f){cat.classList.remove('hidden');cat.classList.remove('collapsed');}else cat.classList.add('hidden');
-    });return;
-  }
-  const head=e.target.closest('.cat-head');
-  if(head){head.parentElement.classList.toggle('collapsed');}
-});
-function sendWA(ev){
-  ev.preventDefault();
-  const nome=document.getElementById('nome').value.trim();
-  const tel=document.getElementById('tel').value.trim();
-  const persone=document.getElementById('persone').value.trim();
-  const data=document.getElementById('data').value.trim();
-  const msg=document.getElementById('msg').value.trim();
-  const righe=[];
-  let riga1=`Ciao Antica Trattoria, sono ${nome}`;
-  if(persone) riga1+=` - vorrei prenotare per ${persone} persone`;
-  if(data) riga1+=` il ${data}`;
-  if(tel) riga1+=` (tel ${tel})`;
-  righe.push(riga1);
-  if(msg){righe.push(`Messaggio: ${msg}`);}
-  const testoFinale=righe.join('\n');
-  const url=`https://wa.me/393511136342?text=${encodeURIComponent(testoFinale)}`;
-  window.open(url,'_blank');
-}
+function renderAll(){renderList('list-antipasti',antipasti);renderList('list-primi',primi);renderList('list-secondi',secondi);renderList('list-contorni',contorni);renderList('list-dolci',dolci);renderList('list-speciali',speciali);renderList('list-extra',extra);renderList('list-bibite',bibite);renderList('list-birre',birre);renderList('list-rossi',rossi);renderList('list-bianchi',bianchi);renderList('list-spina',spina);document.querySelectorAll('.cat').forEach(c=>c.classList.add('collapsed'));}
+document.addEventListener('click',e=>{if(e.target.classList.contains('filter')){document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');const f=e.target.dataset.filter;document.querySelectorAll('.cat[data-cat]').forEach(cat=>{if(f==='all'||cat.dataset.cat===f){cat.classList.remove('hidden');cat.classList.remove('collapsed');}else cat.classList.add('hidden');});return;}const head=e.target.closest('.cat-head');if(head){head.parentElement.classList.toggle('collapsed');}});
+function sendWA(ev){ev.preventDefault();const nome=document.getElementById('nome').value.trim();const tel=document.getElementById('tel').value.trim();const persone=document.getElementById('persone').value.trim();const data=document.getElementById('data').value.trim();const msg=document.getElementById('msg').value.trim();const righe=[];let riga1=`Ciao Antica Trattoria, sono ${nome}`;if(persone) riga1+=` - vorrei prenotare per ${persone} persone`;if(data) riga1+=` il ${data}`;if(tel) riga1+=` (tel ${tel})`;righe.push(riga1);if(msg){righe.push(`Messaggio: ${msg}`);}const testoFinale=righe.join('\n');const url=`https://wa.me/393511136342?text=${encodeURIComponent(testoFinale)}`;window.open(url,'_blank');}
 function updateFooter(){
-  const el=document.getElementById('footer-dynamic-status');
-  if(!el) return;
-  const now=new Date();
-  const month=now.getMonth()+1;
-  const day=now.getDay();
-  const dayNames=['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
-  const isWinter=month<=4||month>=10;
-  const seasonLabel=isWinter?'Inverno (Ott-Dic + Gen-Apr): Gio-Dom':'Estate (Mag-Set): Mar-Dom';
-  let status='', detail='', isOpen=false;
-  if(isWinter){
-    if(day===4||day===5){status=`Oggi ${dayNames[day]}: APERTI SOLO A CENA`; detail='Dalle 19:00 — prenota su WhatsApp'; isOpen=true;}
-    else if(day===6||day===0){status=`Oggi ${dayNames[day]}: APERTI PRANZO E CENA`; detail='12:00-14:30 e 19:00-22:00'; isOpen=true;}
-    else {status=`Oggi ${dayNames[day]}: CHIUSO`; detail='Riapriamo Giovedì a cena — '+seasonLabel; isOpen=false;}
-  } else {
-    if(day>=2&&day<=5){status=`Oggi ${dayNames[day]}: APERTI SOLO A CENA`; detail='Dalle 19:00 — '+seasonLabel; isOpen=true;}
-    else if(day===6||day===0){status=`Oggi ${dayNames[day]}: APERTI PRANZO E CENA`; detail='12:00-14:30 e 19:00-22:00'; isOpen=true;}
-    else {status=`Oggi Lunedì: CHIUSO`; detail='Riapriamo Martedì a cena — '+seasonLabel; isOpen=false;}
+  const el=document.getElementById('footer-dynamic-status');if(!el)return;
+  const now=new Date();const m=now.getMonth()+1;const d=now.getDay();const names=['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const winter=m<=4||m>=10;
+  let txt='',sub='',open=false;
+  if(winter){
+    if(d===4||d===5){txt=`OGGI ${names[d].toUpperCase()} — APERTI A CENA`;sub=`Giovedì e Venerdì facciamo solo cena, 19:00-22:00. Inverno: aperti Gio-Dom, chiusi Lun-Mer.`;open=true;}
+    else if(d===6||d===0){txt=`OGGI ${names[d].toUpperCase()} — APERTI PRANZO E CENA`;sub=`Sabato e Domenica: 12:00-14:30 e 19:00-22:00. Inverno: Gio-Dom.`;open=true;}
+    else{txt=`OGGI ${names[d].toUpperCase()} — CHIUSO`;sub=`Oggi chiuso. In inverno riapriamo Giovedì a cena. Orario invernale: Gio-Ven solo cena, Sab-Dom pranzo e cena.`;open=false;}
+  }else{
+    if(d>=2&&d<=5){txt=`OGGI ${names[d].toUpperCase()} — APERTI A CENA`;sub=`Estate: Mar-Ven solo cena 19:00-22:30. Sab-Dom pranzo e cena. Lunedì chiuso.`;open=true;}
+    else if(d===6||d===0){txt=`OGGI ${names[d].toUpperCase()} — APERTI PRANZO E CENA`;sub=`Weekend estivo: 12:00-14:30 e 19:00-22:30. Estate: aperti Mar-Dom, Lun chiuso.`;open=true;}
+    else{txt=`OGGI LUNEDÌ — CHIUSO`;sub=`Oggi chiuso. In estate riapriamo Martedì a cena. Estate: Mar-Ven cena, Sab-Dom pranzo e cena.`;open=false;}
   }
-  el.innerHTML=`<div class="status ${isOpen?'open':'closed'}">● ${status}</div><div class="detail">${detail} • Tel 0721 885138 • <a href="https://wa.me/393511136342" style="text-decoration:underline;color:#25D366">Prenota su WhatsApp</a></div>`;
+  el.innerHTML=`<div class="today ${open?'open':'closed'}">● ${txt}</div><div class="sub">${sub} — <a href="https://wa.me/393511136342" style="color:#25D366;text-decoration:underline">Prenota su WhatsApp 351 113 6342</a></div>`;
 }
-renderAll();
-updateFooter();
+renderAll();updateFooter();
