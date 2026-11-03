@@ -19,34 +19,35 @@ const spina=[{n:'Bianchello - Sangiovese 1/2 L / 1/4 L',d:'In Bottiglia',p:''},{
 function renderList(id,data){const el=document.getElementById(id);if(!el)return;el.innerHTML=data.map(d=>{const pc=d.p?'':'empty';return `<div class="item"><div class="item-left"><b>${d.n}</b>${d.d?`<small>${d.d}</small>`:''}</div><div class="item-right ${pc}">${d.p}</div></div>`}).join('');}
 function renderAll(){
   renderList('list-antipasti',antipasti);renderList('list-primi',primi);renderList('list-secondi',secondi);renderList('list-contorni',contorni);renderList('list-dolci',dolci);renderList('list-speciali',speciali);renderList('list-extra',extra);renderList('list-bibite',bibite);renderList('list-birre',birre);renderList('list-rossi',rossi);renderList('list-bianchi',bianchi);renderList('list-spina',spina);
-  // Chiudi TUTTE le tendine all'apertura, anche antipasti
-  document.querySelectorAll('.cat').forEach(c=>{
-    c.classList.add('collapsed');
-  });
+  document.querySelectorAll('.cat').forEach(c=>c.classList.add('collapsed'));
 }
 document.addEventListener('click',e=>{
   if(e.target.classList.contains('filter')){
     document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');
     const f=e.target.dataset.filter;
-    document.querySelectorAll('.cat[data-cat]').forEach(cat=>{if(f==='all'||cat.dataset.cat===f){cat.classList.remove('hidden');if(window.innerWidth<=900)cat.classList.remove('collapsed');}else cat.classList.add('hidden');});
-    return;
+    document.querySelectorAll('.cat[data-cat]').forEach(cat=>{
+      if(f==='all'||cat.dataset.cat===f){cat.classList.remove('hidden');cat.classList.remove('collapsed');}else cat.classList.add('hidden');
+    });return;
   }
   const head=e.target.closest('.cat-head');
   if(head){head.parentElement.classList.toggle('collapsed');}
 });
 function sendWA(ev){
   ev.preventDefault();
-  const nome=document.getElementById('nome').value;
-  const tel=document.getElementById('tel').value;
-  const persone=document.getElementById('persone').value;
-  const data=document.getElementById('data').value;
-  const msg=document.getElementById('msg').value;
-  
-  let text=`Ciao Antica Trattoria, sono ${nome}`;
-  if(persone) text+=` - vorrei prenotare per ${persone} persone`;
-  if(data) text+=` il ${data}`;
-  if(tel) text+=` (tel ${tel})`;
-  if(msg) text+=`\nMessaggio: ${msg}`;
-  
-  window.open(`https://wa.me/393511136342?text=${encodeURIComponent(text)}`,'_blank');
+  const nome=document.getElementById('nome').value.trim();
+  const tel=document.getElementById('tel').value.trim();
+  const persone=document.getElementById('persone').value.trim();
+  const data=document.getElementById('data').value.trim();
+  const msg=document.getElementById('msg').value.trim();
+  const righe=[];
+  let riga1=`Ciao Antica Trattoria, sono ${nome}`;
+  if(persone) riga1+=` - vorrei prenotare per ${persone} persone`;
+  if(data) riga1+=` il ${data}`;
+  if(tel) riga1+=` (tel ${tel})`;
+  righe.push(riga1);
+  if(msg){righe.push(`Messaggio: ${msg}`);}
+  const testoFinale=righe.join('\n');
+  const url=`https://wa.me/393511136342?text=${encodeURIComponent(testoFinale)}`;
+  window.open(url,'_blank');
 }
+renderAll();
