@@ -29,7 +29,6 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .reviews-real-head{margin-bottom:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:16px}
 .reviews-real-head h2{font-family:'Bebas Neue';font-size:52px}
 .reviews-meta span{font-size:11px;opacity:.6;display:block;margin-bottom:6px}
-.reviews-links{display:flex;gap:12px;font-size:10px;text-transform:uppercase;text-decoration:underline;opacity:.7}
 .menu-section{padding:48px 20px}
 .menu-intro{margin-bottom:32px;border-bottom:1px solid var(--ink);padding-bottom:16px;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px}
 .menu-intro h2{font-family:'Bebas Neue';font-size:clamp(48px,8vw,80px);line-height:.85}
@@ -70,9 +69,15 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .book-form input,.book-form textarea{width:100%;max-width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.15);font-family:Inter,sans-serif;font-size:14px;margin-bottom:10px;background:var(--paper);box-sizing:border-box;min-width:0;display:block;-webkit-appearance:none;appearance:none}
 .book-form input[type="date"],.book-form input[type="number"]{min-height:44px}
 .book-form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
-.form-social{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .wa-float{position:fixed;bottom:22px;right:22px;z-index:300;background:#25D366;color:#fff;width:62px;height:62px;border-radius:50%;box-shadow:0 15px 30px rgba(37,211,102,.45);display:grid;place-items:center}
-footer{padding:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;font-size:9px;text-transform:uppercase;opacity:.6;flex-wrap:wrap;gap:8px}
+.footer-dynamic{background:var(--ink);color:var(--paper);padding:0;border-top:1px solid var(--ink)}
+.footer-top{padding:16px 20px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.12);font-size:11px;line-height:1.4}
+.footer-top .status{font-family:'Bebas Neue';font-size:18px;letter-spacing:.04em}
+.footer-top .status.open{color:#25D366}
+.footer-top .status.closed{color:#ff8a7a}
+.footer-top .detail{opacity:.7;font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+.footer-bottom{padding:14px 20px;display:flex;justify-content:space-between;gap:10px;font-size:9px;text-transform:uppercase;opacity:.6;flex-wrap:wrap}
+.footer-bottom a{text-decoration:underline}
 @media(max-width:900px){
 nav.top{padding:8px 10px;height:52px}
 nav.top .logo{font-size:13px;padding:0 10px;height:32px}
@@ -98,7 +103,8 @@ nav.bottom a{padding:9px 12px;border-radius:100px;font-size:9px;text-transform:u
 .book-form{padding:14px 10px;border-radius:14px}
 .book-form .row{grid-template-columns:1fr 1fr;gap:8px}
 .book-form input,.book-form textarea{font-size:16px;padding:11px 12px}
+.footer-top{padding:12px 10px;flex-direction:column;align-items:flex-start}
+.footer-bottom{padding:10px 10px 82px 10px}
 .wa-float{bottom:68px;right:10px;width:50px;height:50px}
-footer{padding:12px 10px 82px 10px}
 }
 @media(max-width:380px){.book-form .row{grid-template-columns:1fr}}
