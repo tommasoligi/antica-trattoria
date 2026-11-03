@@ -50,4 +50,26 @@ function sendWA(ev){
   const url=`https://wa.me/393511136342?text=${encodeURIComponent(testoFinale)}`;
   window.open(url,'_blank');
 }
+function updateFooter(){
+  const el=document.getElementById('footer-dynamic-status');
+  if(!el) return;
+  const now=new Date();
+  const month=now.getMonth()+1;
+  const day=now.getDay();
+  const dayNames=['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const isWinter=month<=4||month>=10;
+  const seasonLabel=isWinter?'Inverno (Ott-Dic + Gen-Apr): Gio-Dom':'Estate (Mag-Set): Mar-Dom';
+  let status='', detail='', isOpen=false;
+  if(isWinter){
+    if(day===4||day===5){status=`Oggi ${dayNames[day]}: APERTI SOLO A CENA`; detail='Dalle 19:00 — prenota su WhatsApp'; isOpen=true;}
+    else if(day===6||day===0){status=`Oggi ${dayNames[day]}: APERTI PRANZO E CENA`; detail='12:00-14:30 e 19:00-22:00'; isOpen=true;}
+    else {status=`Oggi ${dayNames[day]}: CHIUSO`; detail='Riapriamo Giovedì a cena — '+seasonLabel; isOpen=false;}
+  } else {
+    if(day>=2&&day<=5){status=`Oggi ${dayNames[day]}: APERTI SOLO A CENA`; detail='Dalle 19:00 — '+seasonLabel; isOpen=true;}
+    else if(day===6||day===0){status=`Oggi ${dayNames[day]}: APERTI PRANZO E CENA`; detail='12:00-14:30 e 19:00-22:00'; isOpen=true;}
+    else {status=`Oggi Lunedì: CHIUSO`; detail='Riapriamo Martedì a cena — '+seasonLabel; isOpen=false;}
+  }
+  el.innerHTML=`<div class="status ${isOpen?'open':'closed'}">● ${status}</div><div class="detail">${detail} • Tel 0721 885138 • <a href="https://wa.me/393511136342" style="text-decoration:underline;color:#25D366">Prenota su WhatsApp</a></div>`;
+}
 renderAll();
+updateFooter();
