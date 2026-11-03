@@ -1,23 +1,36 @@
-# Antica Trattoria Novilara — Website
+# Antica Trattoria — Fano — Sito Ufficiale
 
-> Dal 1972 sulle colline di Pesaro. Pasta fatta a mano, vino in caraffa, cucina di casa.
+Sito vetrina per Antica Trattoria, Via Sant'Andrea in Villis 2, Fano PU.
+Menù, foto, recensioni Google, prenotazione diretta su WhatsApp.
 
-Sito moderno e interattivo per **Antica Trattoria Novilara / Trattoria Dalla Maria** — Piazzale Cadorna 5, Novilara di Pesaro (PU).
+**Live:** https://TUO-USERNAME.github.io/antica-trattoria/
+**Contatti:** Tel 0721 885138 — WhatsApp 351 113 6342 — Facebook Ufficiale
 
-Live: `https://tuousername.github.io/antica-trattoria-novilara/`
+### Orari
 
----
+**❄️ Inverno — Ottobre / Aprile**
+- Giovedì: Solo Cena
+- Venerdì: Solo Cena
+- Sabato: Pranzo e Cena
+- Domenica: Pranzo e Cena
+- Lun-Mer: Chiuso
 
-### ✨ Features
+**☀️ Estate — Maggio / Settembre**
+- Martedì-Venerdì: Solo Cena
+- Sabato: Pranzo e Cena
+- Domenica: Pranzo e Cena
+- Lunedì: Chiuso
 
-- **Design Editoriale Moderno** — Bebas Neue + Instrument Serif + Inter, layout a griglia
-- **Custom Cursor + Grain** — effetto carta + cursore che si espande su hover
-- **Hero Interattivo** — parallax su scroll, cards in glassmorphism
-- **Marquee Infinito** — animazione CSS `PASTA FATTA A MANO • ...`
-- **Menu Filtrabile** — JS puro, filtri All / Primi / Secondi / Dolci, hover con foto piatto
-- **Parallax Colline** — sezione Hills con immagine che si muove con lo scroll
-- **Prenotazione Fake → WhatsApp** — form senza backend, messaggio di conferma
-- **100% Responsive** — mobile first, nav semplificata
-- **Zero Dipendenze** — solo HTML, CSS, JS vanilla. No framework, no build.
+> Gli orari sono indicativi, sempre meglio confermare su WhatsApp.
 
-### 📂 Struttura
+### File
+
+- `index.html` — struttura, hero, recensioni Elfsight, menù, contatti. Include cache-buster istantaneo con `Date.now()` per risolvere cache Safari iPhone.
+- `style.css` — design, responsive, fix input data che non sborda, hours-box per orari stagionali.
+- `script.js` — render menù, tendine tutte chiuse di default, filtro, progress bar, invio WhatsApp senza `%0A`.
+
+### Come modificare il menù
+
+Apri `script.js` e modifica gli array in cima:
+```js
+const antipasti = [{n:'Nome', d:'descrizione', p:'prezzo'}]
