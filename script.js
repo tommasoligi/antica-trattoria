@@ -21,3 +21,8 @@ function renderAll(){renderList('list-antipasti',antipasti);renderList('list-pri
 document.addEventListener('click',e=>{if(!e.target.classList.contains('filter'))return;document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');const f=e.target.dataset.filter;document.querySelectorAll('.cat[data-cat]').forEach(cat=>{if(f==='all'||cat.dataset.cat===f)cat.classList.remove('hidden');else cat.classList.add('hidden');});});
 function sendWA(ev){ev.preventDefault();const nome=document.getElementById('nome').value;const tel=document.getElementById('tel').value;const persone=document.getElementById('persone').value;const data=document.getElementById('data').value;const msg=document.getElementById('msg').value;let text=`Ciao Antica Trattoria, sono ${nome}`;if(persone)text+=` - vorrei prenotare per ${persone} persone`;if(data)text+=` il ${data}`;if(tel)text+=` (tel ${tel})`;if(msg)text+=`%0A${msg}`;window.open(`https://wa.me/393511136342?text=${encodeURIComponent(text)}`,'_blank');}
 renderAll();
+document.addEventListener('click', e=>{
+  const head = e.target.closest('.cat-head');
+  if(!head || window.innerWidth > 900) return;
+  head.parentElement.classList.toggle('collapsed');
+});
