@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antica Trattoria — Fano — Menù Ufficiale</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<script>
+// AUTO CACHE BUSTER CSS - cambia da solo ogni giorno
+const cssVersion = new Date().toISOString().slice(0,10);
+document.write(`<link rel="stylesheet" href="style.css?v=${cssVersion}">`);
+</script>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -34,11 +38,29 @@
 <a href="#menu" class="btn fill">SFOGLIA IL MENÙ ↓</a>
 <a href="https://wa.me/393511136342" target="_blank" class="btn wa-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="white"><path d="M19.05 4.94A9.91 9.91 0 0 0 12.04 2C6.58 2 2.14 6.45 2.14 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.26-1.38a9.87 9.87 0 0 0 4.78 1.22h.01c5.46 0 9.9-4.45 9.9-9.91a9.86 9.86 0 0 0-2.9-6.99Zm-7.01 15.2h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.27-4.37c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.17c-.25-.12-1.47-.73-1.7-.81-.23-.09-.4-.12-.56.12-.17.25-.65.81-.8.97-.15.17-.3.19-.54.07-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.68 4.24 3.76.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg> 351 113 6342</a>
 </div>
+<div class="hero-badges">
+<span>Tagliatelle al ragù</span><span>Carne alla brace</span><span>Trippa del Giovedì</span><span>Baccalà Ven/Sab</span>
+</div>
 </div>
 <div class="hero-right">
 <div class="hero-img"></div>
-<div class="hero-float">PRENOTA SU WHATSAPP →</div>
 </div>
+</section>
+
+<section class="reviews-real" id="recensioni">
+<div class="reviews-real-head">
+<h2>Recensioni</h2>
+<div class="reviews-meta">
+<span>4,3 ★ su 446 recensioni Google</span>
+<div class="reviews-links">
+<a href="https://www.facebook.com/p/AnticaTrattoria-da-Daniele-100063892039251/" target="_blank">Facebook</a>
+<a href="https://wa.me/393511136342" target="_blank">WhatsApp</a>
+<a href="https://www.google.com/maps/search/Antica+Trattoria+Fano" target="_blank">Vedi su Maps</a>
+</div>
+</div>
+</div>
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-5bfd5bff-553f-4346-80fe-309b755f0799" data-elfsight-app-lazy></div>
 </section>
 
 <section class="menu-section" id="menu">
@@ -54,7 +76,6 @@
 <button class="filter" data-filter="bere">Bere</button>
 </div>
 </div>
-<p>Tap sul titolo per aprire</p>
 </div>
 <div class="cat" data-cat="antipasti"><div class="cat-head"><h3>Antipasti</h3></div><div class="list" id="list-antipasti"></div></div>
 <div class="cat" data-cat="primi"><div class="cat-head"><h3>Primi Piatti</h3></div><div class="list" id="list-primi"></div></div>
@@ -80,21 +101,6 @@
 <div class="g-item" style="background-image:url('https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=800')"><span>Brace</span></div>
 </div>
 </section>
-<section class="reviews-real" id="recensioni">
-<div class="reviews-real-head">
-<h2>Recensioni</h2>
-<div class="reviews-meta">
-<span>4,3 ★ su 446 recensioni Google</span>
-<div class="reviews-links">
-<a href="https://www.facebook.com/p/AnticaTrattoria-da-Daniele-100063892039251/" target="_blank">Facebook</a>
-<a href="https://wa.me/393511136342" target="_blank">WhatsApp</a>
-<a href="https://www.google.com/maps/search/Antica+Trattoria+Fano" target="_blank">Vedi su Maps</a>
-</div>
-</div>
-</div>
-<!-- Elfsight Google Reviews | Untitled Google Reviews -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-a8d6ec86-b651-4401-bf27-da8538747546" data-elfsight-app-lazy></div>
 
 <section class="book" id="contatti">
 <div class="book-info">
@@ -136,6 +142,13 @@ Clicca WhatsApp e scrivi:<br>" Ciao, vorrei prenotare per [persone] [giorno] [or
 </a>
 
 <footer><span>ANTICA TRATTORIA • Via Sant'Andrea in Villis 2, Fano • 4,3 ★ 446 recensioni</span><span><a href="https://wa.me/393511136342">WhatsApp</a> • <a href="https://www.facebook.com/p/AnticaTrattoria-da-Daniele-100063892039251/">Facebook</a> • Tel 0721 885138</span></footer>
-<script src="script.js"></script>
+
+<script>
+// AUTO CACHE BUSTER JS - cambia da solo ogni giorno
+const jsVersion = new Date().toISOString().slice(0,10);
+const script = document.createElement('script');
+script.src = `script.js?v=${jsVersion}`;
+document.body.appendChild(script);
+</script>
 </body>
 </html>
