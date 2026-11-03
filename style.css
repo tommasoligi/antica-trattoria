@@ -12,7 +12,7 @@ body {
   line-height: 1.6;
   color: #333333;
   background-color: #f9f9f9;
-  /* Centra l'intero layout principale nella pagina */
+  /* Centra l'intero layout della pagina su schermi grandi */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,28 +20,28 @@ body {
 }
 
 /* ==========================================
-   2. LAYOUT CENTRATO (Per PC e Monitor Grandi)
+   2. CENTRATURA E LAYOUT SITO (PC / Monitor)
    ========================================== */
-/* Questo contenitore racchiude l'intero contenuto e lo centra su PC */
-.wrapper, 
+/* Limita la larghezza massima a 1200px e centra tutti i blocchi principali */
 header, 
 main, 
-footer {
+footer,
+.container {
   width: 100%;
-  max-width: 1200px; /* Evita che il sito si allarghi troppo su schermi 4K */
-  margin: 0 auto;    /* CENTRA IL CONTENUTO ORIZZONTALMENTE */
-  padding: 0 20px;   /* Margine interno per non far toccare i bordi su mobile */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ==========================================
    3. HEADER E NAVIGAZIONE
    ========================================== */
 header {
-  background-color: #8b0000; /* Rosso trattoria / vino */
+  background-color: #8b0000; /* Rosso Trattoria originale */
   color: #ffffff;
-  padding: 20px;
+  padding: 25px 20px;
   text-align: center;
-  border-bottom: 4px solid #d4af37; /* Dettaglio dorato */
+  border-bottom: 4px solid #d4af37; /* Dettaglio dorato originale */
 }
 
 header h1 {
@@ -70,13 +70,13 @@ nav a:hover {
 }
 
 /* ==========================================
-   4. SEZIONI PRINCIPALI (MAIN)
+   4. CONTENUTO PRINCIPALE (MAIN)
    ========================================== */
 main {
   background-color: #ffffff;
   padding: 40px 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-  flex: 1; /* Spinge il footer sempre in fondo */
+  flex: 1; /* Garantisce che il footer rimanga in fondo */
 }
 
 section {
