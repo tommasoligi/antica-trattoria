@@ -107,6 +107,14 @@ footer{padding:20px;border-top:1px solid var(--ink);display:flex;justify-content
   .book-form input[type="date"]{display:block;background:#faf6ef;color:#11110f}
   .wa-float{bottom:68px;right:10px;width:50px;height:50px}
   footer{padding:12px 10px 82px 10px;font-size:7px}
+  .hours-box{margin-top:20px;border-top:1px solid var(--ink);padding-top:16px;display:flex;flex-direction:column;gap:16px}
+.hours-season{border:1px dashed rgba(0,0,0,.2);border-radius:12px;padding:12px 14px;background:#fff}
+.hours-season b{font-size:10px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:8px}
+.hours-grid{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;line-height:1.5}
+.hours-grid span{background:#f6f0e7;padding:4px 10px;border-radius:100px;border:1px solid rgba(0,0,0,.08)}
+.hours-grid span.closed{background:var(--ink);color:var(--paper);opacity:.9}
+.hours-contact{font-size:12px;line-height:1.6}
+.hours-contact b{font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:6px}
 }
 @media(max-width:380px){
   .book-form .row{grid-template-columns:1fr}
