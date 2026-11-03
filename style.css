@@ -78,7 +78,7 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .footer-hours a{text-decoration:underline;color:#f5e6c8}
 .footer-bottom{padding:14px 24px;display:flex;justify-content:space-between;gap:10px;font-size:9px;text-transform:uppercase;opacity:.5;flex-wrap:wrap}
 
-/* --- MOBILE TUTTO CENTRATO --- */
+/* SOLO TELEFONO CENTRATO */
 @media(max-width:900px){
 nav.top{padding:8px 10px;height:52px}
 nav.top .logo{font-size:13px;padding:0 10px;height:32px}
@@ -87,72 +87,41 @@ nav.top .logo{font-size:13px;padding:0 10px;height:32px}
 .coord{font-size:9px;height:32px;min-width:80px;padding:0 10px}
 nav.bottom{display:flex;position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);border-radius:100px;padding:5px 6px;gap:2px;z-index:200}
 nav.bottom a{padding:9px 12px;border-radius:100px;font-size:9px;text-transform:uppercase}
-
-/* HERO CENTRATO */
 .hero{grid-template-columns:1fr}
-.hero-left{padding:80px 16px 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
-.hero-left .eyebrow{text-align:center}
-.hero h1{text-align:center}
-.hero-desc{max-width:340px;text-align:center;margin-left:auto;margin-right:auto}
+.hero-left{padding:70px 14px 20px;text-align:center;align-items:center}
+.hero-left *{text-align:center}
+.hero-desc{margin-left:auto;margin-right:auto;text-align:center}
 .hero-cta{justify-content:center}
 .hero-badges{justify-content:center}
-.hero-right{min-height:28svh}
-.hero-img{background-position:center 60%}
-
-/* MENU CENTRATO */
-.menu-section{padding:16px 12px}
-.menu-intro{justify-content:center;text-align:center;align-items:center;flex-direction:column}
-.menu-intro h2{width:100%;text-align:center;font-size:36px}
-.menu-intro > div{width:100%;display:flex;flex-direction:column;align-items:center}
+.hero-right{min-height:26svh}
+.reviews-real{padding:20px 12px}
+.reviews-real-head{justify-content:center;text-align:center}
+.reviews-real-head h2{width:100%;text-align:center;font-size:34px}
+.menu-section{padding:12px 10px}
+.menu-intro{justify-content:center;text-align:center;align-items:center}
+.menu-intro h2{width:100%;text-align:center;font-size:32px}
+.menu-intro > div{width:100%;align-items:center}
 .filter-bar{justify-content:center;width:100%}
 .cat{padding:0 12px}
-.cat-head{justify-content:center;text-align:center;gap:10px}
-.cat-head h3{text-align:center;width:100%}
-.cat-head::after{position:absolute;right:12px}
-.cat{position:relative}
-.list{align-items:center}
-.item{width:100%;justify-content:center;text-align:center;flex-direction:column;gap:4px;padding:12px 0}
-.item-left{text-align:center;width:100%}
-.item-right{text-align:center;width:100%}
-
-/* FOTO CENTRATO */
-.gallery{padding:20px 12px;text-align:center}
-.gallery-head{justify-content:center;text-align:center;flex-direction:column;align-items:center}
-.gallery-head h2{text-align:center;width:100%}
-.gallery-head p{text-align:center}
+.gallery{padding:20px 10px}
+.gallery-head{justify-content:center;text-align:center}
+.gallery-head h2{width:100%;text-align:center}
 .gallery-grid{grid-template-columns:1fr 1fr}
-.g-item span{left:50%;transform:translateX(-50%)}
-
-/* RECENSIONI CENTRATO */
-.reviews-real{padding:24px 12px;text-align:center}
-.reviews-real-head{justify-content:center;text-align:center;flex-direction:column;align-items:center}
-.reviews-real-head h2{font-size:36px;width:100%;text-align:center}
-.reviews-meta{width:100%;text-align:center}
-
-/* CONTATTI CENTRATO */
-.book{grid-template-columns:1fr;padding:20px 12px;gap:16px;text-align:center}
-.book-info{text-align:center;display:flex;flex-direction:column;align-items:center}
+.book{grid-template-columns:1fr;padding:16px 10px;gap:14px}
+.book-info{text-align:center}
 .book-info h2{text-align:center}
 .book-sub{text-align:center}
 .contact-simple{text-align:center}
-.book-form{padding:16px 12px;text-align:center}
-.book-form h3{text-align:center}
-.book-form p{text-align:center}
-.book-form input,.book-form textarea{text-align:center}
-.book-form input::placeholder,.book-form textarea::placeholder{text-align:center}
-
-/* FOOTER CENTRATO */
-.footer-status{padding:16px 14px;flex-direction:column;align-items:center;text-align:center}
-.footer-status .today{text-align:center}
+.book-form{text-align:center}
+.footer-status{flex-direction:column;text-align:center;align-items:center;padding:14px 12px}
 .footer-status .sub{text-align:center;max-width:100%}
-.footer-hours{padding:24px 14px;grid-template-columns:1fr;gap:28px;text-align:center}
+.footer-hours{grid-template-columns:1fr;text-align:center;padding:20px 14px}
 .footer-hours b{text-align:center}
 .footer-hours p{text-align:center}
 .footer-hours ul{align-items:center}
-.footer-hours li{padding-left:0;text-align:center}
+.footer-hours li{padding-left:0}
 .footer-hours li::before{display:none}
-.footer-bottom{flex-direction:column;align-items:center;text-align:center;padding:12px 12px 84px 12px;gap:6px}
-
+.footer-bottom{flex-direction:column;text-align:center;align-items:center;padding:12px 12px 84px 12px}
 .wa-float{bottom:68px;right:10px;width:50px;height:50px}
 }
 @media(max-width:380px){.book-form .row{grid-template-columns:1fr}}
