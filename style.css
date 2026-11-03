@@ -11,20 +11,21 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .ico.wa{background:#25D366}.ico.fb{background:#1877F2}
 .coord{background:var(--ink);color:var(--paper);padding:0 12px;border-radius:100px;font-size:10px;font-weight:700;display:flex;align-items:center;height:34px;min-width:90px}
 
-/* CORPO INIZIALE ORIGINALE SU PC */
+/* ===== PC NORMALE - ORIGINALE ===== */
 .hero{min-height:75svh;display:grid;grid-template-columns:1.1fr .9fr;align-items:end}
-.hero-left{padding:100px 20px 32px}
-.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.55;margin-bottom:16px}
-.hero h1{font-family:'Bebas Neue';font-size:clamp(64px,10vw,140px);line-height:.85}
+.hero-left{padding:100px 24px 40px 24px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;justify-content:flex-end}
+.hero-left *{text-align:left}
+.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.55;margin-bottom:16px;width:100%}
+.hero h1{font-family:'Bebas Neue';font-size:clamp(64px,10vw,140px);line-height:.85;width:100%}
 .hero h1 em{font-family:'Instrument Serif';font-weight:400;text-transform:lowercase;color:var(--clay);display:block;transform:rotate(-1.5deg)}
-.hero-desc{max-width:380px;margin-top:14px;font-size:14px;line-height:1.5;opacity:.7}
-.hero-cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
-.hero-badges{margin-top:18px;display:flex;gap:6px;flex-wrap:wrap}
+.hero-desc{max-width:380px;margin-top:14px;font-size:14px;line-height:1.5;opacity:.7;width:100%}
+.hero-cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start;width:100%}
+.hero-badges{margin-top:18px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-start;width:100%}
 .hero-badges span{font-size:9px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(0,0,0,.15);padding:6px 10px;border-radius:100px;background:#fff}
 .btn{padding:13px 20px;border-radius:100px;border:1px solid var(--ink);font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer;box-sizing:border-box}
 .btn.fill{background:var(--ink);color:var(--paper)}
 .btn.wa-btn{background:#25D366;border-color:#25D366;color:#fff}
-.hero-right{position:relative;min-height:55vh;background:var(--sand);overflow:hidden}
+.hero-right{position:relative;min-height:75svh;background:var(--sand);overflow:hidden}
 .hero-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000') center/cover}
 
 .reviews-real{background:#fff;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:40px 20px}
@@ -80,7 +81,7 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .footer-hours a{text-decoration:underline;color:#f5e6c8}
 .footer-bottom{padding:14px 24px;display:flex;justify-content:space-between;gap:10px;font-size:9px;text-transform:uppercase;opacity:.5;flex-wrap:wrap}
 
-/* SOLO TELEFONO = CENTRATO + SPAZIO TRA BOTTONI E FOTO */
+/* ===== SOLO TELEFONO = CENTRATO + SPAZIO ===== */
 @media(max-width:900px){
 nav.top{padding:8px 10px;height:52px}
 nav.top .logo{font-size:13px;padding:0 10px;height:32px}
@@ -89,16 +90,13 @@ nav.top .logo{font-size:13px;padding:0 10px;height:32px}
 .coord{font-size:9px;height:32px;min-width:80px;padding:0 10px}
 nav.bottom{display:flex;position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);border-radius:100px;padding:5px 6px;gap:2px;z-index:200}
 nav.bottom a{padding:9px 12px;border-radius:100px;font-size:9px;text-transform:uppercase}
-
-/* hero telefono */
 .hero{grid-template-columns:1fr;min-height:auto}
-.hero-left{padding:70px 14px 0;text-align:center;align-items:center;display:flex;flex-direction:column}
-.hero-left *{text-align:center}
-.hero-desc{margin-left:auto;margin-right:auto}
-.hero-cta{justify-content:center;margin-bottom:32px}
-.hero-badges{justify-content:center;margin-bottom:10px}
+.hero-left{padding:70px 14px 0;text-align:center;align-items:center;justify-content:flex-start}
+.hero-left *{text-align:center !important;width:100%;justify-content:center}
+.hero-desc{margin-left:auto;margin-right:auto;text-align:center !important}
+.hero-cta{justify-content:center !important;margin-bottom:32px}
+.hero-badges{justify-content:center !important;margin-bottom:10px}
 .hero-right{min-height:40vh;margin-top:12px}
-
 .reviews-real{padding:20px 12px}
 .reviews-real-head{justify-content:center;text-align:center}
 .reviews-real-head h2{width:100%;text-align:center;font-size:34px}
