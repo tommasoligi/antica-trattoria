@@ -78,7 +78,7 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .footer-hours a{text-decoration:underline;color:#f5e6c8}
 .footer-bottom{padding:14px 24px;display:flex;justify-content:space-between;gap:10px;font-size:9px;text-transform:uppercase;opacity:.5;flex-wrap:wrap}
 
-/* SOLO TELEFONO CENTRATO */
+/* SOLO TELEFONO CENTRATO + SPAZIO BOTTONI-FOTO */
 @media(max-width:900px){
 nav.top{padding:8px 10px;height:52px}
 nav.top .logo{font-size:13px;padding:0 10px;height:32px}
@@ -88,12 +88,12 @@ nav.top .logo{font-size:13px;padding:0 10px;height:32px}
 nav.bottom{display:flex;position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);border-radius:100px;padding:5px 6px;gap:2px;z-index:200}
 nav.bottom a{padding:9px 12px;border-radius:100px;font-size:9px;text-transform:uppercase}
 .hero{grid-template-columns:1fr}
-.hero-left{padding:70px 14px 20px;text-align:center;align-items:center}
+.hero-left{padding:70px 14px 36px;text-align:center;align-items:center}
 .hero-left *{text-align:center}
 .hero-desc{margin-left:auto;margin-right:auto;text-align:center}
-.hero-cta{justify-content:center}
-.hero-badges{justify-content:center}
-.hero-right{min-height:26svh}
+.hero-cta{justify-content:center;margin-bottom:28px;padding-bottom:8px}
+.hero-badges{justify-content:center;margin-bottom:6px}
+.hero-right{min-height:28svh;margin-top:10px}
 .reviews-real{padding:20px 12px}
 .reviews-real-head{justify-content:center;text-align:center}
 .reviews-real-head h2{width:100%;text-align:center;font-size:34px}
