@@ -116,14 +116,6 @@ const spina=[
 {n:'Bianco Frizzante Alla Spina 1 L / 1/2 L',d:'',p:''},
 {n:'Bianchello / Sangiovese 3/4 L Bottiglia',d:'',p:''},
 ];
-const reviews=[
-{t:'★★★★★',p:'Cucina casalinga vera, porzioni abbondanti. Tagliatelle al ragù come le faceva mia nonna.',a:'Marco R.'},
-{t:'★★★★★',p:'20 anni che vengo qui. Carne alla brace spettacolare.',a:'Laura B.'},
-{t:'★★★★☆',p:'Locale semplice ma si mangia benissimo. Gnocchi all\'anatra da urlo.',a:'Giovanni P.'},
-{t:'★★★★★',p:'Pranzo domenica perfetto. Antipasto misto enorme.',a:'Sara M.'},
-{t:'★★★★★',p:'Cucina marchigiana autentica. Trippa del giovedì.',a:'Andrea F.'},
-{t:'★★★★★',p:'Grande antipasto 10€ vale il viaggio.',a:'Paolo C.'},
-];
 function renderList(id, data){
   const el=document.getElementById(id);
   if(!el) return;
@@ -145,8 +137,29 @@ function renderAll(){
   renderList('list-rossi', rossi);
   renderList('list-bianchi', bianchi);
   renderList('list-spina', spina);
-  const marquee=document.getElementById('reviewsMarquee');
-  const double=[...reviews,...reviews];
-  marquee.innerHTML=double.map(r=>`<div class="review-card"><div class="stars">${r.t}</div><p>"${r.p}"</p><small>${r.a}</small></div>`).join('');
+}
+document.addEventListener('click', (e)=>{
+  if(!e.target.classList.contains('filter')) return;
+  document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  const f=e.target.dataset.filter;
+  document.querySelectorAll('.cat[data-cat]').forEach(cat=>{
+    if(f==='all' || cat.dataset.cat===f) cat.classList.remove('hidden');
+    else cat.classList.add('hidden');
+  });
+});
+function sendWA(ev){
+  ev.preventDefault();
+  const nome=document.getElementById('nome').value;
+  const tel=document.getElementById('tel').value;
+  const persone=document.getElementById('persone').value;
+  const data=document.getElementById('data').value;
+  const msg=document.getElementById('msg').value;
+  let text=`Ciao Antica Trattoria, sono ${nome}`;
+  if(persone) text+=` - vorrei prenotare per ${persone} persone`;
+  if(data) text+=` il ${data}`;
+  if(tel) text+=` (tel ${tel})`;
+  if(msg) text+=`%0A${msg}`;
+  window.open(`https://wa.me/393511136342?text=${encodeURIComponent(text)}`, '_blank');
 }
 renderAll();
