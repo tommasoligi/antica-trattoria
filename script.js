@@ -19,7 +19,10 @@ const spina=[{n:'Bianchello - Sangiovese 1/2 L / 1/4 L',d:'In Bottiglia',p:''},{
 function renderList(id,data){const el=document.getElementById(id);if(!el)return;el.innerHTML=data.map(d=>{const pc=d.p?'':'empty';return `<div class="item"><div class="item-left"><b>${d.n}</b>${d.d?`<small>${d.d}</small>`:''}</div><div class="item-right ${pc}">${d.p}</div></div>`}).join('');}
 function renderAll(){
   renderList('list-antipasti',antipasti);renderList('list-primi',primi);renderList('list-secondi',secondi);renderList('list-contorni',contorni);renderList('list-dolci',dolci);renderList('list-speciali',speciali);renderList('list-extra',extra);renderList('list-bibite',bibite);renderList('list-birre',birre);renderList('list-rossi',rossi);renderList('list-bianchi',bianchi);renderList('list-spina',spina);
-  if(window.innerWidth<=900){document.querySelectorAll('.cat').forEach((c,i)=>{if(i!==0)c.classList.add('collapsed');});}
+  // Chiudi TUTTE le tendine all'apertura, anche antipasti
+  document.querySelectorAll('.cat').forEach(c=>{
+    c.classList.add('collapsed');
+  });
 }
 document.addEventListener('click',e=>{
   if(e.target.classList.contains('filter')){
