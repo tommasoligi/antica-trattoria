@@ -16,13 +16,64 @@ const birre=[{n:'Birra Heineken Media / Piccola / Alla Spina Da 1 L',d:'',p:''}]
 const rossi=[{n:'Sangiovese Doc La Ripe - Lucarelli',d:'cl.75',p:''},{n:'Sangiovese Doc Terrazze - Morelli',d:'cl.75',p:''},{n:'Sangiovese Sirio - Fiorini',d:'cl.75',p:''},{n:'Sangiovese Doc Villa Alta - Vitali',d:'cl.75',p:''},{n:'Rosso Piceno Sup. Doc Brecciarolo - Veronesi',d:'cl.75',p:''},{n:'Rosso Conero Piancarda - Garofoli',d:'cl.75',p:''},{n:'Rosso Conero Doc Yiulius - Strologo',d:'cl.75',p:''},{n:'Lacrima Moro D\'alba Doc - Landi',d:'cl.75',p:''},{n:'Sangiovese Doc Colli Pesaresi - Guerrieri',d:'cl.75 / cl.50',p:''},{n:'Galileo Sangiovese Riserva Doc - Guerrieri',d:'cl.75',p:''},{n:'Guerriero Nero Marche Rosso Igt - Guerrieri',d:'cl.75',p:''},{n:'Mandy Marche Rosso Igt Syrah - Vitali',d:'',p:''}];
 const bianchi=[{n:'Gessara Bianchello Superiore - Vitali',d:'',p:''},{n:'Bianchello La Ripe - Lucarelli',d:'cl.75',p:''},{n:'Bianchello Campioli - Fiorini',d:'cl.75',p:''},{n:'Bianchello S. Ilario - Fiorini',d:'cl.75',p:''},{n:'Bianchello Metauro Terrazze - Morelli',d:'cl.75',p:''},{n:'Verdicchio Ca\'ruptae - Iesi',d:'cl.75',p:''},{n:'Bianchello Del Metauro Doc - Guerrieri',d:'cl.50',p:''},{n:'Celso Bianchello Del Metauro Sup. Doc - Guerrieri',d:'cl.75',p:''},{n:'Guerriero Bianco Igt - Guerrieri',d:'cl.75',p:''},{n:'Moss Vino Frizzante - Guerrieri',d:'cl.75',p:''}];
 const spina=[{n:'Bianchello - Sangiovese 1/2 L / 1/4 L',d:'In Bottiglia',p:''},{n:'Bianco Frizzante Alla Spina 1 L / 1/2 L',d:'',p:''},{n:'Bianchello / Sangiovese 3/4 L Bottiglia',d:'',p:''}];
-function renderList(id,data){const el=document.getElementById(id);if(!el)return;el.innerHTML=data.map(d=>{const pc=d.p?'':'empty';return `<div class="item"><div class="item-left"><b>${d.n}</b>${d.d?`<small>${d.d}</small>`:''}</div><div class="item-right ${pc}">${d.p}</div></div>`}).join('');}
-function renderAll(){renderList('list-antipasti',antipasti);renderList('list-primi',primi);renderList('list-secondi',secondi);renderList('list-contorni',contorni);renderList('list-dolci',dolci);renderList('list-speciali',speciali);renderList('list-extra',extra);renderList('list-bibite',bibite);renderList('list-birre',birre);renderList('list-rossi',rossi);renderList('list-bianchi',bianchi);renderList('list-spina',spina);}
-document.addEventListener('click',e=>{if(!e.target.classList.contains('filter'))return;document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));e.target.classList.add('active');const f=e.target.dataset.filter;document.querySelectorAll('.cat[data-cat]').forEach(cat=>{if(f==='all'||cat.dataset.cat===f)cat.classList.remove('hidden');else cat.classList.add('hidden');});});
-function sendWA(ev){ev.preventDefault();const nome=document.getElementById('nome').value;const tel=document.getElementById('tel').value;const persone=document.getElementById('persone').value;const data=document.getElementById('data').value;const msg=document.getElementById('msg').value;let text=`Ciao Antica Trattoria, sono ${nome}`;if(persone)text+=` - vorrei prenotare per ${persone} persone`;if(data)text+=` il ${data}`;if(tel)text+=` (tel ${tel})`;if(msg)text+=`%0A${msg}`;window.open(`https://wa.me/393511136342?text=${encodeURIComponent(text)}`,'_blank');}
-renderAll();
-document.addEventListener('click', e=>{
-  const head = e.target.closest('.cat-head');
-  if(!head || window.innerWidth > 900) return;
-  head.parentElement.classList.toggle('collapsed');
+
+function renderList(id,data){
+  const el=document.getElementById(id);
+  if(!el) return;
+  el.innerHTML=data.map(d=>{
+    const pc=d.p?'':'empty';
+    return `<div class="item"><div class="item-left"><b>${d.n}</b>${d.d?`<small>${d.d}</small>`:''}</div><div class="item-right ${pc}">${d.p}</div></div>`;
+  }).join('');
+}
+function renderAll(){
+  renderList('list-antipasti',antipasti);
+  renderList('list-primi',primi);
+  renderList('list-secondi',secondi);
+  renderList('list-contorni',contorni);
+  renderList('list-dolci',dolci);
+  renderList('list-speciali',speciali);
+  renderList('list-extra',extra);
+  renderList('list-bibite',bibite);
+  renderList('list-birre',birre);
+  renderList('list-rossi',rossi);
+  renderList('list-bianchi',bianchi);
+  renderList('list-spina',spina);
+  if(window.innerWidth<=900){
+    document.querySelectorAll('.cat').forEach((c,i)=>{
+      if(i!==0) c.classList.add('collapsed');
+    });
+  }
+}
+document.addEventListener('click',e=>{
+  if(e.target.classList.contains('filter')){
+    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    const f=e.target.dataset.filter;
+    document.querySelectorAll('.cat[data-cat]').forEach(cat=>{
+      if(f==='all'||cat.dataset.cat===f){
+        cat.classList.remove('hidden');
+        if(window.innerWidth<=900) cat.classList.remove('collapsed');
+      } else cat.classList.add('hidden');
+    });
+    return;
+  }
+  const head=e.target.closest('.cat-head');
+  if(head){
+    head.parentElement.classList.toggle('collapsed');
+  }
 });
+function sendWA(ev){
+  ev.preventDefault();
+  const nome=document.getElementById('nome').value;
+  const tel=document.getElementById('tel').value;
+  const persone=document.getElementById('persone').value;
+  const data=document.getElementById('data').value;
+  const msg=document.getElementById('msg').value;
+  let text=`Ciao Antica Trattoria, sono ${nome}`;
+  if(persone) text+=` - vorrei prenotare per ${persone} persone`;
+  if(data) text+=` il ${data}`;
+  if(tel) text+=` (tel ${tel})`;
+  if(msg) text+=`%0A${msg}`;
+  window.open(`https://wa.me/393511136342?text=${encodeURIComponent(text)}`,'_blank');
+}
+renderAll();
