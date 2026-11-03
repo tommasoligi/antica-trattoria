@@ -41,9 +41,9 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .cat{margin-bottom:14px;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:0 14px;background:#fff;overflow:hidden}
 .cat-head{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;user-select:none}
 .cat-head h3{font-family:'Bebas Neue';font-size:24px}
-.cat-head::after{content:'−';font-family:'Bebas Neue';font-size:20px;opacity:.4;margin-left:10px;width:26px;height:26px;border-radius:50%;border:1px solid rgba(0,0,0,.15);display:grid;place-items:center;flex-shrink:0}
+.cat-head::after{content:'+';font-family:'Bebas Neue';font-size:20px;opacity:.4;margin-left:10px;width:26px;height:26px;border-radius:50%;border:1px solid rgba(0,0,0,.15);display:grid;place-items:center;flex-shrink:0}
+.cat:not(.collapsed) .cat-head::after{content:'−'}
 .cat.collapsed .list{display:none}
-.cat.collapsed .cat-head::after{content:'+'}
 .list{display:flex;flex-direction:column;padding-bottom:8px}
 .item{display:flex;justify-content:space-between;align-items:start;gap:16px;padding:10px 0;border-bottom:1px solid rgba(0,0,0,.06)}
 .item:last-child{border-bottom:none}
@@ -54,7 +54,6 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .gallery{padding:48px 20px;background:var(--paper);border-top:1px solid var(--ink)}
 .gallery-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
 .gallery-head h2{font-family:'Bebas Neue';font-size:48px}
-.gallery-head p{font-size:11px;opacity:.6;letter-spacing:.1em}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .g-item{aspect-ratio:4/3;border-radius:16px;background-size:cover;background-position:center;background-color:var(--sand);position:relative;overflow:hidden}
 .g-item span{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.6);color:#fff;padding:5px 10px;border-radius:100px;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
@@ -66,13 +65,13 @@ nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);colo
 .book-form{background:#fff;border:1px solid var(--ink);border-radius:20px;padding:22px;box-shadow:0 20px 40px rgba(0,0,0,.06);width:100%;max-width:100%;overflow:hidden;box-sizing:border-box}
 .book-form h3{font-family:'Bebas Neue';font-size:32px;margin-bottom:4px}
 .book-form p{font-size:11px;opacity:.6;margin-bottom:16px}
-.book-form input,.book-form textarea{width:100%;max-width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.15);font-family:Inter,sans-serif;font-size:14px;margin-bottom:10px;background:var(--paper);box-sizing:border-box;min-width:0;display:block}
-.book-form textarea{min-height:80px;resize:vertical}
+.book-form input,.book-form textarea{width:100%;max-width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.15);font-family:Inter,sans-serif;font-size:14px;margin-bottom:10px;background:var(--paper);box-sizing:border-box;min-width:0;display:block;-webkit-appearance:none;appearance:none}
+.book-form input[type="date"],.book-form input[type="number"]{background:var(--paper);-webkit-appearance:none;appearance:none;min-height:44px}
 .book-form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;box-sizing:border-box}
 .form-social{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 .wa-float{position:fixed;bottom:22px;right:22px;z-index:300;background:#25D366;color:#fff;width:62px;height:62px;border-radius:50%;box-shadow:0 15px 30px rgba(37,211,102,.45);display:grid;place-items:center;transition:.2s}
-.wa-float:hover{transform:translateY(-3px) scale(1.08)}
 footer{padding:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;flex-wrap:wrap;gap:8px}
+
 @media(max-width:900px){
   nav.top{padding:8px 10px;height:52px}
   nav.top .logo{font-size:13px;padding:0 10px;height:32px}
@@ -100,18 +99,15 @@ footer{padding:20px;border-top:1px solid var(--ink);display:flex;justify-content
   .cat-head h3{font-size:17px}
   .item{padding:6px 0;gap:8px}
   .item-left b{font-size:13px}
-  .item-left small{font-size:9px}
   .item-right{font-size:13px;min-width:40px}
-  .gallery{padding:18px 10px}
-  .gallery-grid{grid-template-columns:1fr 1fr;gap:6px}
   .book{grid-template-columns:1fr;padding:16px 10px;gap:12px}
-  .book-form{padding:12px;border-radius:14px}
+  .book-form{padding:14px 10px;border-radius:14px;width:100%;max-width:100%}
   .book-form .row{grid-template-columns:1fr 1fr;gap:8px}
-  .book-form input,.book-form textarea{font-size:16px;padding:10px 10px}
+  .book-form input,.book-form textarea{font-size:16px;padding:11px 12px;min-width:0;width:100%;max-width:100%}
+  .book-form input[type="date"]{display:block;background:#faf6ef;color:#11110f}
   .wa-float{bottom:68px;right:10px;width:50px;height:50px}
   footer{padding:12px 10px 82px 10px;font-size:7px}
 }
 @media(max-width:380px){
   .book-form .row{grid-template-columns:1fr}
-  nav.top .logo{font-size:11px}
 }
