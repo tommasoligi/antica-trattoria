@@ -8,14 +8,12 @@ nav.top{position:fixed;top:0;width:100%;z-index:200;display:flex;justify-content
 nav.top .logo{font-family:'Bebas Neue';font-size:17px;background:var(--ink);color:var(--paper);padding:6px 12px;border-radius:100px}
 nav.top .links{display:flex;gap:16px}
 nav.top .links a{opacity:.6;font-weight:600}
-.social-top{display:flex;align-items:center;gap:6px}
-.ico{width:28px;height:28px;border-radius:100px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:9px;font-weight:700}
-.ico.wa{background:#25D366;color:#fff}
-.ico.fb{background:#1877F2;color:#fff}
-.coord{background:var(--ink);color:var(--paper);padding:7px 12px;border-radius:100px;font-size:9px;font-weight:700;transition:.3s;margin-left:6px}
-.coord:hover{background:var(--clay)}
-nav.bottom{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:200;display:none;background:var(--ink);color:var(--paper);border-radius:100px;padding:6px 8px;gap:2px;box-shadow:0 20px 40px rgba(0,0,0,.3)}
-nav.bottom a{padding:10px 14px;border-radius:100px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.social-top{display:flex;align-items:center;gap:8px}
+.ico{width:34px;height:34px;border-radius:50%;background:var(--ink);display:grid;place-items:center;transition:.2s;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.ico:hover{transform:translateY(-2px) scale(1.05)}
+.ico.wa{background:#25D366}
+.ico.fb{background:#1877F2}
+.coord{background:var(--ink);color:var(--paper);padding:8px 12px;border-radius:100px;font-size:9px;font-weight:700;margin-left:4px}
 .hero{min-height:75svh;display:grid;grid-template-columns:1.1fr .9fr;align-items:end}
 .hero-left{padding:100px 20px 32px}
 .eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.55;margin-bottom:16px}
@@ -76,8 +74,8 @@ nav.bottom a{padding:10px 14px;border-radius:100px;font-size:10px;letter-spacing
 .book-form textarea{min-height:80px;resize:vertical}
 .book-form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .form-social{display:flex;gap:8px;margin-top:14px}
-.wa-float{position:fixed;bottom:22px;right:22px;z-index:300;background:#25D366;color:#fff;padding:14px 18px;border-radius:100px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;box-shadow:0 15px 30px rgba(37,211,102,.35);display:flex;align-items:center;gap:6px}
-.wa-float:hover{transform:translateY(-2px)}
+.wa-float{position:fixed;bottom:22px;right:22px;z-index:300;background:#25D366;color:#fff;width:62px;height:62px;border-radius:50%;box-shadow:0 15px 30px rgba(37,211,102,.45);display:grid;place-items:center;transition:.2s}
+.wa-float:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 20px 40px rgba(37,211,102,.6)}
 footer{padding:20px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;flex-wrap:wrap;gap:8px}
 @media(max-width:900px){
   nav.top .links{display:none}
@@ -89,6 +87,6 @@ footer{padding:20px;border-top:1px solid var(--ink);display:flex;justify-content
   .menu-section{padding:36px 16px}
   .book{grid-template-columns:1fr;padding:36px 16px;gap:20px}
   .gallery-grid{grid-template-columns:1fr 1fr}
-  .wa-float{bottom:76px;right:12px}
+  .wa-float{bottom:76px;right:12px;width:58px;height:58px}
   footer{padding-bottom:90px}
 }
