@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antica Trattoria — Fano — Menù Ufficiale</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<script>
-// AUTO CACHE BUSTER CSS - cambia da solo ogni giorno
-const cssVersion = new Date().toISOString().slice(0,10);
-document.write(`<link rel="stylesheet" href="style.css?v=${cssVersion}">`);
-</script>
+<script>document.write(`<link rel="stylesheet" href="style.css?v=${Date.now()}">`);</script>
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -144,11 +140,9 @@ Clicca WhatsApp e scrivi:<br>" Ciao, vorrei prenotare per [persone] [giorno] [or
 <footer><span>ANTICA TRATTORIA • Via Sant'Andrea in Villis 2, Fano • 4,3 ★ 446 recensioni</span><span><a href="https://wa.me/393511136342">WhatsApp</a> • <a href="https://www.facebook.com/p/AnticaTrattoria-da-Daniele-100063892039251/">Facebook</a> • Tel 0721 885138</span></footer>
 
 <script>
-// AUTO CACHE BUSTER JS - cambia da solo ogni giorno
-const jsVersion = new Date().toISOString().slice(0,10);
-const script = document.createElement('script');
-script.src = `script.js?v=${jsVersion}`;
-document.body.appendChild(script);
+const s=document.createElement('script');
+s.src=`script.js?v=${Date.now()}`;
+document.body.appendChild(s);
 </script>
 </body>
 </html>
